@@ -1,7 +1,7 @@
 // SERVER STATUS DEV or LIVE only for body:before breakpoint label 
 $server: DEV;
 
-$font_family: "Poppins";
+$font_family: "Neue Montreal";
 
 //------------------------------------------------------------------------------------------------------
 // settings
@@ -17,50 +17,34 @@ $viewport_min_width: 320px;
 $white: #ffffff;
 $black: #000000;
 
-$blue: 	#313069;
-$blue_washed: #3d3d75;
-
-$green: #9dba37;
-$red: 	#ed425f;
-$red_washed: 	#ffc6cf;
-$light_grey: #d3d2d2;
-
 //------------------------------------------------------------------------------------------------------
 // TEXT COLOURS 
 //------------------------------------------------------------------------------------------------------
 
-$txt_default:	 #53525f;
-$txt_light_grey: #d3d2d2;
-$txt_washed_grey: #c4c4cf;
-$txt_grey: 		#9b9bab;
-$link_colour: 		$green;
+$txt_default: #111827;
+$txt_grey: #6B7280;
+$txt_neutral: #374151;
 
 //------------------------------------------------------------------------------------------------------
-// BORDERS 
+// BORDERS
 //------------------------------------------------------------------------------------------------------
 
-$border_grey: #e1e1e1;
-$border_light_grey: #eff1f5;
-$border_dark_grey: #c4c4cf;
+$border_grey: #D1D5DB;
 
 //------------------------------------------------------------------------------------------------------
-// ICONS 
+// BACKGROUNDS
 //------------------------------------------------------------------------------------------------------
 
-$icon_grey: #dadae5;
-
-//------------------------------------------------------------------------------------------------------
-// BACKGROUNDS 
-//------------------------------------------------------------------------------------------------------
-
-$bg: #eff1f5;
-$bg_light_grey: #f2f2f2;
+$bg: #C6C6C6;
+$bg_grey: #E5E7EB;
+$bg_green: #28776D;
+$bg_red: #D44C57;
 
 //------------------------------------------------------------------------------------------------------
 // BASE FORM 
 //------------------------------------------------------------------------------------------------------
 
-$form_text_size:				1.4rem;
+$form_text_size:				1.8rem;
 $form_text_color: 				#53525f;
 $form_label_color: 				#9b9bab;
 $form_label_text_size:			1.4rem;
@@ -78,68 +62,6 @@ $form_label_text_size_small:	1rem;
 $form_border_size_small:		1px;
 $form_border_color_small: 		#dadcdf;
 
-// Variant = Background
-$form_variant_background_color: #f5f5f5;
-
-// Helper & Error Messages
-$form_helper_text_size: 		1.1rem;
-$form_helper_text_color: 		$txt_light_grey;
-$form_error_text_color: 		$red;
-
-
-// radio and checkbox
-$form_radio_checkbox_outline:				#c4c4cf;
-$form_radio_checkbox_outline_selected: 		$black;
-$form_radio_checkbox_bg: 					$white;
-$form_radio_checkbox_bg_selected: 			$black;
-$form_radio_checkbox_hover_border_color: #ebebeb;
-$form_radio_checkbox_option_text_color: 	#53525f;
-$form_radio_checkbox_option_text_color_selected: $black;
-
-$form_radio_checkbox_label_text_size: 		2.2rem;
-$form_radio_checkbox_label_color:				#000000;
-$form_radio_checkbox_label_margin_bottom: 		2rem;
-
-
-// Checkbox Switch
-$form_switch_toggle_color: #ffffff;
-$form_switch_off:		 #c4c4cf;
-$form_switch_on:		$blue;
-$form_switch_disabled:	 #e1e1e1;
-
-$font_title: 	"Roboto Slab"; // Halant
-$font_text:	 	"Poppins";
-$font_cursive:	"Sacramento";
-
-//------------------------------------------------------------------------------------------------------
-// BUTTONS
-//------------------------------------------------------------------------------------------------------
-
-$button_background: 		#000;
-$button_height:				5rem;
-$button_line_height:		5rem;
-$button_padding:			0 5rem;
-$button_font_size:			1.6rem;
-$button_font_weight:		600;
-$button_border_radius: 		0;
-$button_border:				0;
-$button_text_color: 		$white;
-$button_hover_background: 	#9dba37;
-$button_hover_text_color: 	$white;
-
-
-$button_height_small: 4.2rem;
-$button_line_height_small: 4.2rem; 
-$button_font_size_small: 1.4rem;
-
-//------------------------------------------------------------------------------------------------------
-// MENU DOTS
-//------------------------------------------------------------------------------------------------------
-
-$menu_dots_color: #c4c4cf;
-$menu_dots_link_hover: $bg_light_grey;
-$menu_dots_trigger_background_color: #f2f2f2;
-
 
 // CSS Reset
 *,
@@ -154,7 +76,7 @@ html { font-size: 62.5%; box-sizing: border-box; scroll-behavior: smooth; }
 
 html, body, #root { height: 100%; }
 
-body { font-family: $font_family, sans-serif; font-size: 1.3rem; box-sizing: border-box; font-weight: 400; background-color: $bg; color: $txt_default; min-width: $viewport_min_width;
+body { font-family: $font_family, sans-serif; font-size: 1.3rem; box-sizing: border-box; font-weight: 400; background-color: $white; color: $txt_default; min-width: $viewport_min_width;
 
 	&:before { padding: 0.5rem 1rem; position: fixed; left: 0px; top: 0; z-index: 10000; background: #000; opacity: .1; text-align: center; color: $white; font-size: 1.4rem; }
     &:before { @include breakpoint(xl) { content: "xl" } }
@@ -171,11 +93,6 @@ body { font-family: $font_family, sans-serif; font-size: 1.3rem; box-sizing: bor
 
 strong { font-weight: 600; }
 
-a, a:visited { text-decoration: none; color: $link_colour;
-
-	&:hover { text-decoration: underline; }
-
-}
 
 p { margin-bottom: 2.4rem; }
 
@@ -183,10 +100,4 @@ ol, ul  { margin-bottom: 4rem; margin-left: 3rem;
 
 	li { margin-bottom: 1rem; }
 
-
-}
-
-.link { color: $green; 
-
-    &:hover { color: $black; text-decoration: none; }
 }

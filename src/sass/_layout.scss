@@ -1,218 +1,19 @@
-$site_color: $black;
+$site_color: $txt_default;
 
 // ------------------------------------------------------------------------------------------------------
 // HEADINGS
 // ------------------------------------------------------------------------------------------------------
 
-h3 { font-weight: 400; font-size: 1.8rem; margin-bottom: 2rem; color: $site_color; 
+h3 { font-weight: 400; font-size: 1.8rem; margin-bottom: 2rem; color: $site_color;
 
-    small { font-size: 1.4rem; color: $txt_grey; }
+    small { font-size: 1.4rem; color: $site_color; }
 }
-
-// ------------------------------------------------------------------------------------------------------
-// Header
-// ------------------------------------------------------------------------------------------------------
-
-.header { background-color: $white; height: 8rem; display: flex; align-items: center; box-shadow: -5px 5px 9px rgba(0,0,0,0.05); position: relative; z-index: 100;
-
-    &__site { font-weight: 700; font-size: 2.3rem; padding: 0 3rem; color: $site_color;  }
-
-    &__logo { width: 18rem; margin-top: 1rem; }
-
-    &__account { position: absolute; right: 3rem; top: 2rem;
-        
-        &__nav { height: 4.4rem; width: 4.4rem; border: 2px solid $border_grey; display: block; position: relative; border-radius: 50%; text-align: center; line-height: 4rem; font-weight: 600;  color: $site_color; }
-
-    }
-
-    .menu__dots__dropdown { min-width: 25rem; 
-
-        .select { padding: 2.5rem; }
-
-        a { color: $txt_default; }
-        
-    }
-    
-
-}
-
-.popup__search { 
-
-    &__content { width: 140rem; background: $white; padding: 2rem; position: absolute; z-index: 1; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); }
-
-}
-
-.tbl__data__list { width: 100%; border-collapse: collapse;
-
-    th, td { text-align: left; padding: 1rem; }
-
-    th { background-color: $bg_light_grey; }
-
-    tr { border-bottom: 1px solid $border_light_grey;
-
-        td { }
-    }
-
-    .link { font-weight: 600; }
-}
-
-
-// ------------------------------------------------------------------------------------------------------
-// Main Layout
-// ------------------------------------------------------------------------------------------------------
-
-.layout { display: grid; grid-template-columns: 25rem auto; height: calc(100vh - 8rem); 
-
-    @include breakpoint(s) { display: block; }
-
-    &__col1 { background-color: $white; 
-        
-        @include breakpoint(s) { height: 0; overflow: hidden; }
-
-    }
-    
-    .nav__main { margin: 0; padding: 0;
-
-        > li {  margin: 0; list-style-type: none; align-items: center; min-height: 7rem; border-bottom: 1px solid $border_light_grey; background-color: $white;
-            
-            > a  {  padding: 0rem 3rem; font-weight: 600; display: grid; height: 7rem; align-items: center; grid-template-columns: 4rem auto; color: $site_color;
-                
-                &:hover { background-color: $border_light_grey; text-decoration: none; }
-
-            }
-
-
-        }
-
-        .icon__reps         { width: 2.4rem; }
-        .icon__calendar     { width: 2.3rem; }
-        .icon__users        { width: 2.4rem; }
-        .icon__settings     { width: 2.4rem; }
-        .icon__fitters      { width: 2.8rem; }
-
-        [class*="icon__"]   { fill: $site_color; }
-
-        >li.active { background-color: $site_color; 
-                
-            > a { color: $white;
-                
-                &:hover { background-color: transparent; }
-
-            }
-
-            .nav__main__sub,
-            .nav__main__sub.nav__main__sub--calendar {
-                
-                position: static; left: -999rem;
-             
-                a { color: $white; }
-
-                .fc a { color: $black; }
-            
-            }
-
-            [class*="icon__"]   { fill: $white; }
-
-   
-
-   
-
-        }
-
-        &__sub { display: grid; padding-left: 7rem; margin-bottom: 2rem; position: absolute; left: -999rem;
-
-            > a { font-size: 1.4rem; font-weight: 300; color: $site_color; display: block; }
-
-            // Side Calendar Styling
-            &--calendar { padding: 0; margin: 0; 
-                
-                .calendar__box { padding: 3rem 1rem; background-color: $white;  }
-
-                .fc {
-
-                    .fc-button,
-                    .fc-button:active,
-                    .fc-button:focus { background-color: $green; border: 0 ; outline: 0 ;  border-color: transparent; box-shadow: none !important; }
-
-                    .fc-button:hover { background-color: $black; border: 0; outline: 0; }
-
-                    .fc-toolbar { display: block; text-align: center; }
-
-                    .fc-toolbar-chunk:nth-child(1) { margin-bottom: 1rem;
-
-                        .fc-toolbar-title { font-size: 1.8rem; font-weight: 400; line-height: 1em; }
-
-                    }
-                    .fc-toolbar-chunk:nth-child(2) { display: none;}
-                    .fc-toolbar-chunk:nth-child(3) { }
-
-
-                    .fc-daygrid-day-top { justify-content: center; }
-                    
-                    .fc-daygrid-day-number { font-size: 1.2rem; }
-                    
-                    
-
-                    .fc-daygrid-day-events { display: none; }
-
-                    .fc-col-header-cell-cushion  { text-transform: uppercase; font-size: 1rem; padding: .8rem 0;  }
-
-                    .fc-daygrid-day:hover { background-color: #f1f1f1; }
-                    
-                    a { font-size: 1.2rem; color: $black; 
-                        
-                        &:hover { text-decoration: none; }
-
-                    }
-
-                    .fc-scrollgrid { }
-
-                    
-                    // .fc-daygrid-body-unbalanced .fc-daygrid-day-events { min-height: auto; }
-
-                    // .fc-daygrid-day.fc-day-today { background-color: $light_grey;
-                        
-                    //     .fc-daygrid-day-number { color: $white; }
-                    // }
-
-                    // .fc-button { padding: 0.2rem 0.5rem; border-radius: 0; background-color: $site_color; border: 0; outline: 0; }
-
-                    .fc-toolbar-title { font-size: 1.4rem; font-weight: 400; line-height: 1em; }
-                    
-                }
-
-                .fc-theme-standard td { cursor: pointer; }
-
-      
-            
-            }
-        }
-
-        .switch__account__box { padding: 2rem; 
-            
-            .abc__select__menu { width: 30rem; }
-        }
-
-
-    }
-
-    
-
-
-    &__col2 { padding: 2rem 3rem; 
-        
-        @include breakpoint(s) { padding: 1rem; }
-
-    }
-
-}
-
 
 // ------------------------------------------------------------------------------------------------------
 // CONTENT
 // ------------------------------------------------------------------------------------------------------
 
-h1 { font-size: 2.4rem; font-weight: 400; margin-bottom: 2rem; color: $site_color; 
+h1 { font-size: 9rem; font-weight: 400; color: $site_color; letter-spacing: -0.02em;
 
     @include breakpoint(s) { display: none; }
 
@@ -225,67 +26,30 @@ h1 { font-size: 2.4rem; font-weight: 400; margin-bottom: 2rem; color: $site_colo
 // PANEL LAYOUT
 // ------------------------------------------------------------------------------------------------------
 
-.panel { background-color: $white; box-shadow: 0px 3px 6px rgba(0,0,0,0.03); margin-bottom: 3rem;
+.panel { background-color: $white; margin-top: 3rem; margin-bottom: 3rem; padding: 0 3rem;
 
-    &__top,
-    &__body,
-    &__bottom { }
 
-    &__top { align-items: center; border-bottom: 1px solid $border_light_grey; padding: 2rem 4rem; grid-template-columns: auto auto; display: grid; 
-        
-        @include breakpoint(r) { grid-template-columns: auto; padding: 2rem 3rem; }
-        
-
-    }
-
-    &__action {  justify-self: end; 
-        
-        @include breakpoint(r) { justify-self: start; }
-
-    }
-
-    &__filter { display: flex; justify-content: flex-end; column-gap: 2rem; align-items: stretch;
+    &__filter { display: flex; justify-content: space-between; column-gap: 2rem; align-items: flex-end;
 
         @include breakpoint(xs) { row-gap: 1rem; margin-top: 2rem; flex-direction: column; }
 
-        .abc__select .abc__select__input,
-        .abc__textfield .abc__textfield__input { width: 20rem; 
-            
+        .select .select__input,
+        .textfield .textfield__input { width: 18rem; background-color: $bg_grey;
+
             @include breakpoint(xs) { width: 100%; }
         }
 
-        .filter__search { 
+        .filter__search {
 
-            .abc__select .abc__select__input,
-            .abc__textfield .abc__textfield__input { width: 40rem; 
-                
+            .select .select__input,
+            .textfield .textfield__input { width: 36rem; background-color: $bg_grey;
+
                 @include breakpoint(xs) { width: 100%;  }
             }
 
         }
 
     }
-   
-    
-
-    &__body { padding: 4rem; 
-
-        @include breakpoint(r) { padding: 3rem; }
-        
-        &--no-padding { padding: 0; }
-    }
-
-
-    &__bottom { padding: 2rem 4rem; border-top: 1px solid $border_light_grey; display: grid; 
-        
-        .btn + .btn { margin-left: 2rem; }
-
-        @include breakpoint(xs) { padding: 2rem 3rem; }
-
-
-    }
-    
-    &__title { font-size: 2rem; color: $site_color; display: grid;}   
 
 }
 
@@ -317,13 +81,13 @@ h1 { font-size: 2.4rem; font-weight: 400; margin-bottom: 2rem; color: $site_colo
                 &:last-child { padding-right: 4rem; }
             }
 
-            th { background-color: $border_light_grey; padding: 1rem; 
+            th { background-color: $bg_grey; padding: 1rem;
                 
                 &.action { text-align: right; }
 
             }
 
-            td { border-bottom: 1px solid $border_light_grey; 
+            td { border-bottom: 1px solid $bg_grey;
                 
                 &.action { text-align: right; }
 
@@ -340,17 +104,27 @@ h1 { font-size: 2.4rem; font-weight: 400; margin-bottom: 2rem; color: $site_colo
 
 }
 
-
 // ------------------------------------------------------------------------------------------------------
 // FORMS
 // ------------------------------------------------------------------------------------------------------
 
 .form__row { display: grid; grid-template-columns: 10rem auto; margin-bottom: 1.5rem; column-gap: 4rem;
 
+    &--wide__label { grid-template-columns: 15rem auto; }
+    &--wide__12 { grid-template-columns: 12rem auto; }
+
     .form__label {align-self: center; }
+
+    &--no__margin { margin-bottom: 0.5rem; }
+
 
 }
 
+.textfield__prefix--search { right: 1rem; pointer-events: none;
+
+    &:before { content: url('../images/searchIcon.svg'); font-style: normal; }
+
+}
 
 // ------------------------------------------------------------------------------------------------------
 // OVERRIDE COMPONENT STYLES

@@ -8,7 +8,6 @@ export default class TextField extends BaseField {
         label: PropTypes.string,
         prefix: PropTypes.string,
         suffix: PropTypes.string,
-        underline: PropTypes.bool,
         disabled: PropTypes.bool,
         variant: PropTypes.oneOf(['underline', 'background']),
         value: PropTypes.string,
@@ -36,20 +35,20 @@ export default class TextField extends BaseField {
     }
 
     onFocus() {
-        this.refMainContainer.current.classList.add('abc__textfield--focused');
+        this.refMainContainer.current.classList.add('textfield--focused');
     }
 
     onFocusLost() {
-        this.refMainContainer.current.classList.remove('abc__textfield--focused');
+        this.refMainContainer.current.classList.remove('textfield--focused');
     }
 
     onChange(event) {
         this.setCurrentValue(event.target.value);
 
         if (event.target.value !== '') {
-            this.refMainContainer.current.classList.add('abc__textfield--filled');
+            this.refMainContainer.current.classList.add('textfield--filled');
         } else {
-            this.refMainContainer.current.classList.remove('abc__textfield--filled');
+            this.refMainContainer.current.classList.remove('textfield--filled');
         }
 
         if (this.props.onChange) {
@@ -81,11 +80,11 @@ export default class TextField extends BaseField {
 
         switch (variant) {
             case 'underline':
-                customClassName += ' abc__textfield--underline';
+                customClassName += ' textfield--underline';
                 break;
 
             case 'background':
-                customClassName += ' abc__textfield--background';
+                customClassName += ' textfield--background';
                 break;
 
             default:
@@ -93,19 +92,19 @@ export default class TextField extends BaseField {
         }
 
         if (this.props.disabled) {
-            customClassName += ' abc__textfield--disabled';
+            customClassName += ' textfield--disabled';
         }
 
         if (this.value) {
-            customClassName += ' abc__textfield--filled';
+            customClassName += ' textfield--filled';
         }
 
         if (!this.props.label) {
-            customClassName += ' abc__textfield--no-label';
+            customClassName += ' textfield--no-label';
         }
 
         if (this.props.size === 'small') {
-            customClassName += ' abc__textfield--small';
+            customClassName += ' textfield--small';
         }
 
         if (this.props.addClassName) {
@@ -115,12 +114,12 @@ export default class TextField extends BaseField {
 
         return (
             <>
-                <div className={'abc__textfield' + customClassName} ref={this.refMainContainer} key={value}>
-                    <div className="abc__textfield__box">
+                <div className={'textfield' + customClassName} ref={this.refMainContainer} key={value}>
+                    <div className="textfield__box">
                         <input
                             name={this.props.name}
                             type={this.props.isPassword ? 'password' : 'text'}
-                            className={`abc__textfield__input`}
+                            className={`textfield__input`}
                             id={id}
                             onFocus={this.onFocus}
                             onBlur={this.onFocusLost}
@@ -128,16 +127,15 @@ export default class TextField extends BaseField {
                             onChange={this.onChange}
                             {...rest}
                         />
-                        {this.props.label ? <label htmlFor={id} className="abc__textfield__label">{this.props.label}</label> : ''}
-                        {this.props.prefix ? <i className={'abc__textfield__prefix abc__textfield__prefix--' + this.props.prefix}></i> : ''}
-                        {this.props.suffix ? <i className={'abc__textfield__suffix abc__textfield__prefix--' + this.props.suffix}></i> : ''}
-                        {this.props.underline || this.props.underline === undefined ? <div className="abc__textfield__underline"></div> : ''}
+                        {this.props.label ? <label htmlFor={id} className="textfield__label">{this.props.label}</label> : ''}
+                        {this.props.prefix ? <i className={'textfield__prefix textfield__prefix--' + this.props.prefix}></i> : ''}
+                        {this.props.suffix ? <i className={'textfield__suffix textfield__prefix--' + this.props.suffix}></i> : ''}
                     </div>
                 </div>
                 {
                     errorMessage && errorMessage.length > 0 ?
-                        <div className="abc__helper abc__helper--error-show">
-                            <div className="abc__helper__text abc__helper__text--error">{errorMessage}</div>
+                        <div className="helper helper--error-show">
+                            <div className="helper__text helper__text--error">{errorMessage}</div>
                         </div> : ''
                 }
             </>

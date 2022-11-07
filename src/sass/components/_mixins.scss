@@ -7,11 +7,12 @@
 
 @mixin position_center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
-@mixin ul_reset { margin: 0; padding: 0; list-style-type: none; 
+@mixin ul_reset { margin: 0; padding: 0; list-style-type: none;
 
 	li { margin: 0; padding: 0; }
 
 }
+
 
 // ---------------------------------------------------------------------------------------
 //	 BREAKPOINTS - DEFAULT @include breakpoints(s) { }
@@ -23,7 +24,6 @@
 // L =  1601-2000 desktop
 // XL = 2001px + big desktop
 // ---------------------------------------------------------------------------------------
-
 
 @mixin breakpoint($class) {
 	
@@ -71,8 +71,6 @@
 
 }
 
-
-
 // ---------------------------------------------------------------------------------------
 //	 BREAKPOINTS - CUSTOM RANGE @include breakpoint_custom(200,500) { }
 // ---------------------------------------------------------------------------------------
@@ -89,71 +87,3 @@
 // ---------------------------------------------------------------------------------------
 
 @mixin viewport_min_width() { min-width: $viewport_min_width; }
-
-
-// ---------------------------------------------------------------------------------------
-//	 BUTTON - HOVER @include button_hover($COLOUR, $button_darken_hover_amount) { }
-// ---------------------------------------------------------------------------------------
-
-@mixin button_hover($color, $darken_amount) {
-	
-	background-color: darken($color, $darken_amount); text-decoration: none;
-
-}
-
-
-@mixin button_outline_hover($color, $darken_amount) {
-	
-	border-color: darken($color, $darken_amount); color: $color; text-decoration: none;
-
-}
-
-
-// ---------------------------------------------------------------------------------------
-//	PLACEHOLDER input { @include placeholder { color: red; } } 
-// ---------------------------------------------------------------------------------------
-
-@mixin placeholder {
-  &::-webkit-input-placeholder {@content}
-  &:-moz-placeholder           {@content}
-  &::-moz-placeholder          {@content}
-  &:-ms-input-placeholder      {@content}  
-}
-
-
-// ---------------------------------------------------------------------------------------
-//	Arrow @include arrow(down,#fff,10px)
-// ---------------------------------------------------------------------------------------
-
-
-
-@mixin arrow($direction, $color, $size){
-	display: inline-block;  
-	width: 0; 
-	height: 0; 
-	border: #{$size} solid transparent; 
-	content: "";
-	
-	$side: "";
-	@if $direction == "down" 	{ $side: top; }
-	@if $direction == "up" 		{ $side: bottom; }
-	@if $direction == "left" 	{ $side: right; }
-	@if $direction == "right" 	{ $side: left; }
-
-	border-#{$side}-color: #{$color}; 
-}
-
-
-// ---------------------------------------------------------------------------------------
-//	Transform @include disable_hightlight; Disable highlighting of text on double click on element
-// ---------------------------------------------------------------------------------------
-
-@mixin disable_highlight {
-	-webkit-user-select: none; /* Chrome/Safari */        
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+ */
-	/* Rules below not implemented in browsers yet */
-	-o-user-select: none;
-	user-select: none;
-}
-

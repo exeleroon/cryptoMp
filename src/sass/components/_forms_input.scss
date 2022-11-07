@@ -16,9 +16,9 @@ input:-webkit-autofill:active {
 //	 FORM INPUT DEFAULT
 // ---------------------------------------------------------------------------------------
 
-.abc__textfield,
-.abc__select,
-.abc__textarea { 
+.textfield,
+.select,
+.textarea {
 
 	&__box { position: relative; }
 
@@ -30,52 +30,50 @@ input:-webkit-autofill:active {
 
 	&__label { font-size: $form_label_text_size; color: $form_label_color; position: absolute; top: 50%; transform: translateY(-50%); left: 2rem; transition: 200ms ease-in-out; user-select: none; }
 
-	&__underline { height: 2px; width: 0px; opacity: 0; background-color: $green; position: absolute; bottom: 0; left: 0; transform: translateX(50%); transition: 350ms ease-in-out; }
+	&.textfield--focused,
+	&.textfield--filled,
+	&.textarea--focused,
+	&.textarea--filled,
+	&.select--filled {
 
-	&.abc__textfield--focused,
-	&.abc__textfield--filled,
-	&.abc__textarea--focused,
-	&.abc__textarea--filled,
-	&.abc__select--filled {
-
-		.abc__textfield__label,
-		.abc__textarea__label,
-		.abc__select__label 	{ font-size: $form_label_text_size_focused; top: 1rem; transform: translateY(0); }
+		.textfield__label,
+		.textarea__label,
+		.select__label 	{ font-size: $form_label_text_size_focused; top: 1rem; transform: translateY(0); }
 
 	}
 
 	&:hover { 
 
-		.abc__textfield__input,
-		.abc__textarea__input,
-		.abc__select__input { border-color: $form_border_color_hover; }
+		.textfield__input,
+		.textarea__input,
+		.select__input { border-color: $form_border_color_hover; }
 
 	}
 
 	// Only for Textfield and Textarea
 	&--focused { 
 
-		.abc__textfield__label,
-		.abc__textarea__label { color: $green; }
+		.textfield__label,
+		.textarea__label { color: $black; }
 
 		&:hover { 
 			
-			.abc__textfield__input,
-			.abc__textarea__input { border-color: $form_border_color; }
+			.textfield__input,
+			.textarea__input { border-color: $form_border_color; }
 
 		}
 
 		
-		.abc__textfield__underline,
-		.abc__textarea__underline	{ width: 100%; opacity: 1; transform: translateX(0%); }
+		.textfield__underline,
+		.textarea__underline	{ width: 100%; opacity: 1; transform: translateX(0%); }
 	}
 
 	&--filled { 
 
 		&:hover { 
 			
-			.abc__textfield__input,
-			.abc__textarea__input { border-color: $form_border_color; }
+			.textfield__input,
+			.textarea__input { border-color: $form_border_color; }
 
 		}
 
@@ -85,22 +83,22 @@ input:-webkit-autofill:active {
 
 	&--no-label { 
 		
-		.abc__textfield__input,
-		.abc__select__input,
-		.abc__textarea__label { padding-top: 1rem; }
+		.textfield__input,
+		.select__input,
+		.textarea__label { padding-top: 1rem; }
 		
 	}
 
 
 	&--inline { 
 		
-		.abc__input__box,
-		.abc__select__box,
-		.abc__textarea__box { display: inline; }
+		.input__box,
+		.select__box,
+		.textarea__box { display: inline; }
 
-		.abc__textfield__input,
-		.abc__select__input,
-		.abc__textarea__label { width: auto; }
+		.textfield__input,
+		.select__input,
+		.textarea__label { width: auto; }
 		
 	}	
 
@@ -108,17 +106,17 @@ input:-webkit-autofill:active {
 	//	 VARIANT = UNDERLINE (will overide the default styles)
 	// ---------------------------------------------------------------------------------------
 
-	&.abc__textfield--underline,
-	&.abc__select--underline,
-	&.abc__textarea--underline { 
+	&.textfield--underline,
+	&.select--underline,
+	&.textarea--underline {
 
-		.abc__textfield__input,
-		.abc__textarea__input,
-		.abc__select__input { border-top: 0; border-left: 0; border-right: 0; padding-left: 0.5rem; padding-right: 0.5rem; border-width: 1px; background-color: transparent; }
+		.textfield__input,
+		.textarea__input,
+		.select__input { border-top: 0; border-left: 0; border-right: 0; padding-left: 0.5rem; padding-right: 0.5rem; border-width: 1px; background-color: transparent; }
 
-		.abc__textfield__label,
-		.abc__textarea__label,
-		.abc__select__label { left: 0.5rem; }
+		.textfield__label,
+		.textarea__label,
+		.select__label { left: 0.5rem; }
 
 	}
 
@@ -128,13 +126,13 @@ input:-webkit-autofill:active {
 	//	 VARIANT = BACKGROUND (will overide the default textfield styles)
 	// ---------------------------------------------------------------------------------------
 
-	&.abc__textfield--background,
-	&.abc__select--background,
-	&.abc__textarea--background { 
+	&.textfield--background,
+	&.select--background,
+	&.textarea--background {
 
-		.abc__textfield__input,
-		.abc__textarea__input,
-		.abc__select__input { border-radius: 5px 5px 0 0; border-top: 0; border-left: 0; border-right: 0; border-bottom: 1px solid $form_border_color; background-color: $form_variant_background_color; }
+		.textfield__input,
+		.textarea__input,
+		.select__input { border-radius: 5px 5px 0 0; border-top: 0; border-left: 0; border-right: 0; border-bottom: 1px solid $white; background-color: $bg_grey; }
 
 
 	}
@@ -144,14 +142,14 @@ input:-webkit-autofill:active {
 	//	 AUTO WIDTH = input will not be 100%
 	// ---------------------------------------------------------------------------------------
 
-	&.abc__textfield--auto-width { 
+	&.textfield--auto-width {
 
-		.abc__textfield__input,
-		.abc__select__input,
-		.abc__textarea__input 	{ width: auto; background: red; }
+		.textfield__input,
+		.select__input,
+		.textarea__input 	{ width: auto; background: red; }
 
-		.abc__select__box,
-		.abc__select__input { min-width: 20rem; display: inline-block; }
+		.select__box,
+		.select__input { min-width: 20rem; display: inline-block; }
 
 	}
 
@@ -162,60 +160,60 @@ input:-webkit-autofill:active {
 //	 SMALL INPUT - OVERRIDE DEFAULT INPUT SIZE
 // ---------------------------------------------------------------------------------------
 
-.abc__textfield.abc__textfield--small,
-.abc__textarea.abc__textarea--small,
-.abc__select.abc__select--small {
+.textfield.textfield--small,
+.textarea.textarea--small,
+.select.select--small {
 	
-	.abc__textfield__input,
-	.abc__textarea__input,
-	.abc__select__input { height: 4rem; padding: 1.8rem 1.5rem 0.5rem 1.5rem; font-size: $form_text_size; border: $form_border_size_small solid $form_border_color_small; }
+	.textfield__input,
+	.textarea__input,
+	.select__input { height: 6.8rem; padding: 2.2rem 4rem; font-size: $form_text_size; border: none; border-radius: 100px; }
 
 }
  
 // Focus and Filled
-.abc__textfield.abc__textfield--small.abc__textfield--focused,
-.abc__textfield.abc__textfield--small.abc__textfield--filled,
-.abc__textarea.abc__textarea--small.abc__textarea--focused,
-.abc__textarea.abc__textarea--small.abc__textarea--filled,
-.abc__select.abc__select--small.abc__select--filled {
+.textfield.textfield--small.textfield--focused,
+.textfield.textfield--small.textfield--filled,
+.textarea.textarea--small.textarea--focused,
+.textarea.textarea--small.textarea--filled,
+.select.select--small.select--filled {
 
-	.abc__textfield__label,
-	.abc__textarea__label,
-	.abc__select__label 	{ top: 0.4rem; font-size: $form_label_text_size_small; left: 1.5rem; }
-
-}
-
-.abc__textfield.abc__textfield--no-label.abc__textfield--small.abc__textfield--focused,
-.abc__textfield.abc__textfield--no-label.abc__textfield--small.abc__textfield--filled,
-.abc__textarea.abc__textarea--no-label.abc__textarea--small.abc__textarea--focused,
-.abc__textarea.abc__textarea--no-label.abc__textarea--small.abc__textarea--filled,
-.abc__select.abc__select--no-label.abc__select--small.abc__select--filled {
-
-	.abc__textfield__input,
-	.abc__textarea__input,
-	.abc__select__input { padding-top: 0.8rem; }
+	.textfield__label,
+	.textarea__label,
+	.select__label 	{ top: 0.4rem; font-size: $form_label_text_size_small; left: 1.5rem; }
 
 }
 
-.abc__select.abc__select--small {
+.textfield.textfield--no-label.textfield--small.textfield--focused,
+.textfield.textfield--no-label.textfield--small.textfield--filled,
+.textarea.textarea--no-label.textarea--small.textarea--focused,
+.textarea.textarea--no-label.textarea--small.textarea--filled,
+.select.select--no-label.select--small.select--filled {
 
-	.abc__select__menu { top: 4rem;  }
-
-	.abc__select__list__item { height: 3rem; }
+	//.textfield__input,
+	//.textarea__input,
+	//.select__input { padding-top: 0.8rem; }
 
 }
 
-.abc__textarea.abc__textarea--small .abc__textarea__input { height: 8rem; }
+.select.select--small {
+
+	.select__menu { top: 4rem;  }
+
+	.select__list__item { height: 3rem; }
+
+}
+
+.textarea.textarea--small .textarea__input { height: 8rem; }
 
 // No Label
 
-.abc__textfield.abc__textfield--small.abc__select--no-label,
-.abc__textarea.abc__textarea--small.abc__select--no-label,
-.abc__select.abc__select--small.abc__select--no-label {
+.textfield.textfield--small.select--no-label,
+.textarea.textarea--small.select--no-label,
+.select.select--small.select--no-label {
 
-	.abc__textfield__input,
-	.abc__textarea__input,
-	.abc__select__input { padding-top: 1rem; }
+	.textfield__input,
+	.textarea__input,
+	.select__input { padding-top: 1rem; }
 
 }
 
@@ -224,12 +222,12 @@ input:-webkit-autofill:active {
 //	 TEXTFIELD styles only
 // ---------------------------------------------------------------------------------------
 
-.abc__textfield { cursor: text; 
+.textfield { cursor: text;
 
 	&__prefix,
 	&__suffix { position: absolute; top: 50%; transform: translateY(-50%); }
 	
-	&__prefix { left: 0; }
+	&__prefix { left: 14px; }
 	&__suffix { right: 0; }
 
 	&__dropdown { position: absolute; z-index: 1; overflow-y: auto;  background: $white; box-shadow: 0px 5px 5px -3px rgb(0,0,0, 20%), 0px 8px 10px 1px rgb(0,0,0, 14%), 0px 3px 14px 2px rgb(0,0,0, 12%); max-height: 30rem; overflow-y: auto; z-index: 499;
@@ -238,7 +236,7 @@ input:-webkit-autofill:active {
 
 			&__item { padding: 0.5rem 2rem; 
 
-				&:hover { background: $bg_light_grey; cursor: pointer; }
+				&:hover { background: $bg; cursor: pointer; }
 
 			}
 
@@ -253,98 +251,6 @@ input:-webkit-autofill:active {
 
 }
 
-
-
-
-// ---------------------------------------------------------------------------------------
-//	 TEXTAREA Styles only
-// ---------------------------------------------------------------------------------------
-
-.abc__textarea { cursor: text; 
-
-	&__label { top: 2.5rem; }
-
-	&__input { height: 8rem; resize: none; margin-bottom: -7px; }
-
-	// .abc__textarea__underline { bottom: 7px; }
-
-	&--filled { 
-
-		&:hover { 
-			
-			.abc__textfield__input,
-			.abc__textarea__input { border-color: $form_border_color; }
-
-		}
-	} 
-	
-}
-
-
-// ---------------------------------------------------------------------------------------
-//	 SELECT Styles only
-// ---------------------------------------------------------------------------------------
-
-.abc__select { position: relative; cursor: pointer;
-
-	&__dropdown-icon { position: absolute; top: 50%; right: 2rem; transform: translateY(-50%); transition: 100ms ease-in-out;
-		width: 0; height: 0; 
-		border-left: 5px solid transparent;
-		border-right: 5px solid transparent;
-		border-top: 5px solid $form_border_color;
-	} 
-
-	// Select Popup Styles
-
-	&__menu { position: absolute; top: 6rem; width: 100%; background: $white; box-shadow: 0px 5px 5px -3px rgb(0,0,0, 20%), 0px 8px 10px 1px rgb(0,0,0, 14%), 0px 3px 14px 2px rgb(0,0,0, 12%); max-height: 30rem; overflow-y: auto; z-index: 499; }
-
-	&__list { list-style-type: none; margin: 0; padding: 0; }
-
-	&__list__item { padding: 0 2rem; user-select: none; display: flex; align-items: center; height: 5rem; cursor: pointer; margin: 0; 
-		
-		&:hover { background-color: $bg_light_grey; }
-
-		&--highlight { background: $bg_light_grey; }
-	}
-	
-
-
-	// Select Styles when popup is active
-
-	&.abc__select--activated { 
-
-		.abc__select__dropdown-icon { transform: scaleY(-1); }
-
-		&:hover {
-
-			.abc__select__input { border-color: $form_border_color; }
-
-		}
-
-		.abc__select__underline	{ width: 100%; opacity: 1; transform: translateX(0%); }
-
-	}
-
-}
-
-
-// ---------------------------------------------------------------------------------------
-//	 HELPER
-// ---------------------------------------------------------------------------------------
-
-.abc__helper { padding-top: 0.5rem;
-	// commented by Artem. cause it makes error messages for fields invisible
-	//display: none;
-
-	&__text { font-size: $form_helper_text_size; color: $form_helper_text_color;
-
-
-		&.abc__helper__text--error { color: $form_error_text_color; }
-	}
-
-	&.abc__helper--error-show {  }
-	
-}
 
 
 // ---------------------------------------------------------------------------------------
