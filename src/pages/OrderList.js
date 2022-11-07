@@ -19,7 +19,7 @@ export default class OrderList extends React.Component {
 
     searchChangedTimeout = null;
     searchText: string = '';
-    searchResultList: any[] = testJson;
+    searchResultList: testJson[] = testJson;
 
     clearSearchTimeOut() {
         if (this.searchChangedTimeout) {
